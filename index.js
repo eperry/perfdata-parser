@@ -20,8 +20,10 @@ module.exports = function(input, options) {
     if (!input) return
 
     var perfs = ''
+    var message = ''
     // long perfdata
     input.split('\n').forEach((line) => {
+        message += line.split('|')[0] || ''
         perfs += line.split('|')[1] || ''
     })
     input = perfs.trim()
@@ -76,5 +78,9 @@ module.exports = function(input, options) {
             throw Error(err)
         return
     }
-    return perf
+    if (options.message){
+       return { "message": message, "perfdata": perf }
+    }else{
+       return perf
+    }
 }
