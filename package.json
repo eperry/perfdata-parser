@@ -19,5 +19,8 @@
   "license": "ISC",
   "devDependencies": {
     "tape": "^4.6.3"
+  },
+  "dependencies": {
+    "child_process": "^1.0.2"
   }
 }
